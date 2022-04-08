@@ -4,8 +4,8 @@
             <div class="card-header">Pirkinių sąrašas</div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item" *ngFor = "let vardas of vardai; let i = index">
-                        {{ i+1 }}. {{ vardas }} <button class="btn btn-danger float-end" (click) = "removeVardas(i)">Ištrinti</button>
+                    <li class="list-group-item" *ngFor = "let product of products; let i = index">
+                        {{ i+1 }}. {{ product.name }}, kiekis: {{product.count}} <button class="btn btn-danger float-end" (click) = "removeProduct(i)">Ištrinti</button>
                     </li>
                 </ul>
             </div>
@@ -14,13 +14,17 @@
 
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header">Pridėti naują vardą</div>
+            <div class="card-header">Pridėti naują produktą</div>
             <div class="card-body">
                 <div class="mb-3">
-                    <label for="" class="form-label">Vardas: </label>
-                    <input type="text" class="form-control" #newVardas (keyup.enter) = "addNewVardas(newVardas)">
+                    <label for="" class="form-label">Pavadinimas: </label>
+                    <input type="text" class="form-control" #newName>
                 </div>
-                <button class="btn btn-success" (click) = "addNewVardas(newVardas)">Pridėti</button>
+                <div class="mb-3">
+                    <label for="" class="form-label">Kiekis: </label>
+                    <input type="number" class="form-control" #newCount>
+                </div>
+                <button class="btn btn-success" (click) = "addNewProduct(newName, newCount)">Pridėti</button>
             </div>
         </div>
     </div>
